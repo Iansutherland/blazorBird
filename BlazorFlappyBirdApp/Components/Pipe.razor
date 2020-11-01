@@ -1,0 +1,11 @@
+﻿<div class="pipe flip" style="@topPipeCss"></div>
+<div class="pipe" style="@bottomPipeCss"></div>
+
+
+@code {
+    [Parameter] public PipeModel Model { get; set; }
+
+    string topPipeCss => $"left: {Model.DistanceFromLeft}px; bottom: {Model.DistanceFromBottom + 300 + Model.Gap}px; height: {Model.Height}px; Width: {Model.Width}px";
+    string bottomPipeCss => $"left: {Model.DistanceFromLeft}px; bottom: {Model.DistanceFromBottom}px; height: {Model.Height}px; Width: {Model.Width}px";
+
+}

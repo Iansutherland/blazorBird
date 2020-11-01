@@ -1,0 +1,30 @@
+﻿<div class="game-container" tabindex="0" @onclick="gameManager.StartGame" @onkeyup="HandleKeyUp">
+    <div class="sky">
+        <Bird Model="gameManager.Bird"/>
+    </div>
+    <Ground />
+
+    @foreach(var pipe in gameManager.Pipes)
+    {
+        <Pipe Model="pipe"/>
+    }
+</div>
+
+@code {
+    GameManager gameManager;
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        gameManager = new GameManager();
+        gameManager.MainLoopCompleted += (o, e) => StateHasChanged();
+    }
+
+    void HandleKeyUp(KeyboardEventArgs e)
+    {
+        if(e.Key == " ")
+        {
+            gameManager.Jump();
+        }
+    }
+}
