@@ -2,12 +2,32 @@
     background-color: darkgrey;
 }
 
+.hidden {
+    display: none;
+}
+
 .game-container {
     width: 500px;
     height: 730px;
     position: absolute;
     margin-left: 100px;
     margin-right: 20px;
+}
+
+.game-over {
+    position: absolute;
+    min-height: 50px;
+    text-align: center;
+    font-size: 30px;
+}
+
+.menu-button {
+    position: relative;
+    margin: 5% 10% 5% 10%;
+    background-color: burlywood;
+    color: brown;
+    border-radius: 25px;
+    cursor: pointer;
 }
 
 .sky {

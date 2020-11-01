@@ -1,0 +1,16 @@
+﻿<div class="@GameOverClass game-over">
+    <img src="./images/Game_over2.png" alt="Game Over" style="@GameOverCss"/>
+    <div class="menu-button">Restart?</div>
+</div>
+
+@code {
+    [Parameter]
+    public bool isVisible { get; set; }
+
+    [Parameter]
+    public int GameWidth { get; set; }
+
+    string GameOverClass => isVisible ? "hidden": "";
+
+    string GameOverCss => $"width: {GameWidth}px; height: auto;";
+}

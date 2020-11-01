@@ -11,7 +11,8 @@ namespace BlazorFlappyBirdApp.Models
         public List<PipeModel> Pipes { get; private set; }
         public bool IsRunning { get; private set; } = false;
         private readonly int _gravity = 2;
-        //todo add game arena height, width to this class and make collision reckonings here as well
+        public int GameWidth { get; private set; } = 500;
+        
         public event EventHandler MainLoopCompleted;
 
         public GameManager()
@@ -72,23 +73,23 @@ namespace BlazorFlappyBirdApp.Models
 
             var centeredPipe = Pipes.FirstOrDefault(p => p.IsCentered());
 
-            if(centeredPipe != null)
+            if (centeredPipe != null)
             {
                 bool hasCollidedWithBottom = Bird.DistanceFromGround < centeredPipe.GapBottom - centeredPipe.Height / 2;
-                bool hasCollidedWithTop = Bird.DistanceFromGround + Bird.Height > centeredPipe.GapTop - centeredPipe.Height/2;
+                bool hasCollidedWithTop = Bird.DistanceFromGround + Bird.Height > centeredPipe.GapTop - centeredPipe.Height / 2;
 
-                if(hasCollidedWithBottom || hasCollidedWithTop)
+                if (hasCollidedWithBottom || hasCollidedWithTop)
                 {
-                     GameOver();
+                    GameOver();
                 }
             }
         }
 
         private void ManagePipes()
         {
-            if (!Pipes.Any() || Pipes.Last().DistanceFromLeft < 250)
+            if (!Pipes.Any() || Pipes.Last().DistanceFromLeft < GameWidth/2)
             {
-                Pipes.Add(new PipeModel());
+                Pipes.Add(new PipeModel(GameWidth));
             }
 
             if (Pipes.First().IsOffScreen())

@@ -9,7 +9,7 @@ namespace BlazorFlappyBirdApp.Models
     {
         public int DistanceFromLeft { get; private set; } = 500;
 
-        public int DistanceFromBottom { get; private set; } = new Random().Next(0, 60);
+        public int DistanceFromBottom { get; private set; } = new Random().Next(0, 100);
 
         public int Height { get; private set; } = 300;
 
@@ -23,6 +23,19 @@ namespace BlazorFlappyBirdApp.Models
 
         public int GapTop => GapBottom + Gap;
 
+        public int GameWidth { get; private set; } = 500;
+
+        public PipeModel()
+        {
+
+        }
+
+        public PipeModel(int gameWidth)
+        {
+            DistanceFromLeft = gameWidth + Width;
+            GameWidth = gameWidth;
+        }
+
         public void Move()
         {
             DistanceFromLeft -= Speed;
@@ -35,8 +48,8 @@ namespace BlazorFlappyBirdApp.Models
 
         public bool IsCentered()
         {
-            bool hasEnteredCenter = DistanceFromLeft <= (500 / 2) + (Width / 2);//500 is width of gamecontainer
-            bool hasExitedCenter = DistanceFromLeft >= (500 / 2) - (Width / 2);
+            bool hasEnteredCenter = DistanceFromLeft <= (GameWidth / 2) + (Width / 2);
+            bool hasExitedCenter = DistanceFromLeft <= (GameWidth / 2) - (Width / 2);
 
             return hasEnteredCenter && !hasExitedCenter;
         }
