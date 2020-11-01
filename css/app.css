@@ -1,0 +1,78 @@
+﻿body {
+    background-color: darkgrey;
+}
+
+.hidden {
+    display: none;
+}
+
+.game-container {
+    width: 500px;
+    height: 730px;
+    position: absolute;
+    margin-left: 100px;
+    margin-right: 20px;
+}
+
+.game-over {
+    position: absolute;
+    min-height: 50px;
+    text-align: center;
+    font-size: 30px;
+}
+
+.menu-button {
+    position: relative;
+    margin: 5% 10% 5% 10%;
+    background-color: burlywood;
+    color: brown;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+.sky {
+    background-image: url('../images/fb-game-background.png');
+    width: 500px;
+    height: 580px;
+    position: absolute;
+}
+
+.ground {
+    background-image: url('../images/bottom-background.png');
+    position: absolute;
+    z-index: +1;
+}
+
+.bird {
+    background-image: url('../images/flappy-bird.png');
+    position: absolute;
+}
+
+.pipe {
+    background-image: url('../images/flappybird-pipe.png');
+    position: absolute;
+}
+
+.flip {
+    transform: rotate(180deg);
+}
+
+#blazor-error-ui {
+    background: lightyellow;
+    bottom: 0;
+    box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.2);
+    display: none;
+    left: 0;
+    padding: 0.6rem 1.25rem 0.7rem 1.25rem;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+
+#blazor-error-ui .dismiss {
+    cursor: pointer;
+    position: absolute;
+    right: 0.75rem;
+    top: 0.5rem;
+}
+
