@@ -6,7 +6,7 @@
 
         public int JumpStrength { get; private set; } = 50;
 
-        public int Height { get; private set; } = 45;
+        public int Height { get; private set; } = 45; 
 
         public int Width { get; private set; } = 60;
 
